@@ -117,8 +117,8 @@ module Middleman
                                                        )
           end
 
-          if options.year_template || 
-              options.month_template || 
+          if options.year_template ||
+              options.month_template ||
               options.day_template
 
             require 'middleman-blog/calendar_pages'
@@ -149,6 +149,10 @@ module Middleman
       def blog(options=nil)
         @_blog ||= BlogData.new(self, options)
       end
+      
+      def journal(options=nil)
+        @_journal ||= BlogData.new(self, options)
+      end
 
       # Determine whether the currently rendering template is a blog article.
       # This can be useful in layouts.
@@ -178,7 +182,7 @@ module Middleman
       end
 
       # Get a path to the given month-based calendar page, based on the :month_link setting.
-      # @param [Number] year        
+      # @param [Number] year
       # @param [Number] month
       # @return [String]
       def blog_month_path(year, month)
@@ -186,7 +190,7 @@ module Middleman
       end
 
       # Get a path to the given day-based calendar page, based on the :day_link setting.
-      # @param [Number] year        
+      # @param [Number] year
       # @param [Number] month
       # @param [Number] day
       # @return [String]
