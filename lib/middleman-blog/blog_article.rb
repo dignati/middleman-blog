@@ -81,7 +81,7 @@ module Middleman
         if source =~ app.blog.options.summary_separator
           source.split(app.blog.options.summary_separator).first
         else
-          source.match(/(.{1,#{app.blog.options.summary_length}}.*?)(\n|\Z)/m).to_s
+          source.match(/(.{2,#{app.blog.options.summary_length}}.*?)(\n|\Z)/m).to_s
         end
       end
 
